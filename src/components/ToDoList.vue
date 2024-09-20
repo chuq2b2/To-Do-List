@@ -1,6 +1,6 @@
 <template>
     <div id="toDoList">
-        <ToDoItem v-for="todo in todos" :name = "todo.name" :type = "todo.type">
+        <ToDoItem v-for="todo in todos" :name = "todo.name" :type = "todo.type" @completedToDo="captureCompletedToDo">
             <template #description>
                 <p>{{ todo.description }}</p>
             </template>
@@ -24,6 +24,11 @@ export default{
         { name: "Leetcode", type: "Urgent", description: "Need to do OA" },
         { name: "Do Personal Project", type: "Not Urgent but Important", description: "Update resume with needed tech stack" }
       ]}
+    },
+    methods: {
+        captureCompletedToDo(toDo){
+            alert("Completed To Do Item: " + toDo)
+        }
     }
 }
 </script>
